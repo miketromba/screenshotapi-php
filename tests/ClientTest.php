@@ -261,7 +261,7 @@ final class ClientTest extends TestCase
             $this->clientWithResponses([
                 $this->jsonErrorResponse(402, [
                     'error' => 'Not enough credits',
-                    'balance' => 0,
+                    'creditBalance' => 42,
                 ]),
             ], $history)->screenshot(new ScreenshotOptions(url: 'https://example.com'));
 
@@ -269,7 +269,7 @@ final class ClientTest extends TestCase
         } catch (InsufficientCreditsException $exception) {
             self::assertSame(402, $exception->statusCode);
             self::assertSame('insufficient_credits', $exception->errorCode);
-            self::assertSame(0, $exception->balance);
+            self::assertSame(42, $exception->balance);
             self::assertSame('Not enough credits', $exception->getMessage());
         }
     }

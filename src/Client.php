@@ -123,7 +123,7 @@ class Client
 
         match ($statusCode) {
             401 => throw new AuthenticationException($message),
-            402 => throw new InsufficientCreditsException($message, (int) ($data['balance'] ?? 0)),
+            402 => throw new InsufficientCreditsException($message, (int) ($data['creditBalance'] ?? $data['balance'] ?? 0)),
             403 => throw new InvalidAPIKeyException($message),
             500 => throw new ScreenshotFailedException($data['message'] ?? $message),
             default => throw new APIException($message, $statusCode, 'unknown_error'),

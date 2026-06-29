@@ -1,21 +1,12 @@
 # Publishing the PHP SDK
 
-This package is prepared for Packagist as `screenshotapi/sdk`, but it has not been submitted or published.
+This package is published on Packagist as [`screenshotapi/sdk`](https://packagist.org/packages/screenshotapi/sdk) from the public repository [`miketromba/screenshotapi-php`](https://github.com/miketromba/screenshotapi-php). Packagist auto-updates on every push via the configured GitHub webhook, so new releases only require a new Git tag.
 
-## Pre-Publish Checklist
+## One-Time Setup (already done)
 
-- Confirm the package source repository Packagist will index. Packagist expects the submitted repository to expose this SDK's `composer.json` at the repository root. If publishing from the monorepo, split or mirror `sdks/php` to a PHP SDK repository first.
-- Confirm the source URL in `composer.json` is the final public repository. Current placeholder: `https://github.com/miketromba/screenshotapi-php`.
-- Confirm the package name `screenshotapi/sdk` is available or owned by the ScreenshotAPI Packagist account.
-- Confirm `LICENSE`, `README.md`, `composer.json`, `src/`, `examples/`, `tests/`, and `phpunit.xml.dist` are committed.
-- Run `composer validate --strict` from `sdks/php`.
-- Run `composer install` from `sdks/php`.
-- Run `composer test` from `sdks/php`.
-- Confirm examples still match the public API and do not require real network access during tests.
-- Create an annotated release tag, for example `v1.0.0`, in the package repository.
-- Log in to Packagist, choose Submit, and enter the public repository URL.
-- After Packagist crawls the repository, verify `composer require screenshotapi/sdk` installs the tagged release in a clean project.
-- Configure the Packagist GitHub hook or auto-update integration for future tags.
+- The public repository exposes this SDK's `composer.json` at its root (the contents of `sdks/php` are mirrored to the repo root).
+- The package `screenshotapi/sdk` is owned by the ScreenshotAPI Packagist account.
+- The Packagist GitHub auto-update webhook (`https://packagist.org/api/github`) is active on the repository, so pushed tags publish automatically.
 
 ## Release Update Checklist
 
